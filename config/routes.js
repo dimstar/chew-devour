@@ -1,9 +1,21 @@
-const burgerController = require('../controllers/burgers_controller.js');
+const burgerController = require('../controllers/burgersController.js');
+const exphbs = require('express-handlebars');
 
 module.exports = {
-    index: function(path, app){
-        
+    init: function(app){
+        // handlebar middleware
+        app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+        app.set('view engine', 'handlebars');
+
+        app.get('/', this.all );
     },
-    create: function(path, app){},
-    update: function(path, app){},
+    all: function(request, response){
+        burgerController.all(function(renderData){
+            response.render('index', renderData);
+        })
+        
+        // response.send('Hello!');
+    },
+    create: function(request, response){},
+    update: function(request, response){},
 }

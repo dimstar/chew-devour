@@ -1,10 +1,18 @@
 // ORM example /Users/kylemagee/Documents/webapps/vvv/www/codebcamp/htdocs/class-repo/01-Class-Content/14-handlebars/01-Activities/12-OrmExample
 const express = require('express');
 const bodyParser = require('body-parser');
+const router = require('./config/routes.js');
 const PORT = process.env.PORT || 1985;
 
-//body parser middleware
+const app = express();
 
-// handlebar middleware
+//body parser middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
+
+router.init(app);
 
 //listen
+app.listen( PORT, () => console.log(`Rolling on PORT: ${PORT}!`))
