@@ -33,9 +33,18 @@
     color: white;
     height: 42vh;
     text-align: center;
-    padding-top: 10%;
+}
+
+.jumbotron h1 {
+    position: relative;
+    top: 66.66%;
+    transform: translateY(100%);
 }
 
 .devourIt {
     float: right;
+}
+
+a .fa {
+    font-family: fontawesome;
 }
