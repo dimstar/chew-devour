@@ -7,7 +7,19 @@
 .mssgOutput {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 300ms; 
+    transition: opacity 300ms;
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.mssgOutput.success {
+    background: yellowgreen;
+    color: white;
+}
+
+.mssgOutput.error {
+    background: red;
+    color: white;
 }
 
 .mssgOutput.active {
@@ -22,4 +34,8 @@
     height: 42vh;
     text-align: center;
     padding-top: 10%;
+}
+
+.devourIt {
+    float: right;
 }

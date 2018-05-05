@@ -6,6 +6,11 @@ let BJ = {
             event.preventDefault();
             BJ.addBurger();
         });
+
+        $('.devourIt').on('click', function(event){
+            event.preventDefault();
+            BJ.devourBurger($(this));
+        })
     },
     addBurger: function(){
         let burger_name = $('#burger-name').val() || false;
@@ -17,13 +22,27 @@ let BJ = {
               }).done(function() {
                 $( this ).addClass( "done" );
               });   
+        }else{
+            BJ.printMssg('Please fill in the burger name!', 'error')
         }
     },
-    updateBurger: function(){
-
+    devourBurger: function($thisBuger){
+        let burger_id = $thisBuger.attr('data-burger') || false;
+        if(burger_id){
+            $.ajax({
+                url: "/burger/"+burger_id,
+                data: {"devoured": 1},
+                method: 'PUT'
+              }).done(function() {
+                $( this ).addClass( "done" );
+              });   
+        }
     },
-    printMssg: function(mssg){
-        $('.mssgOutput').text(mssg).addClass('active');
+    printMssg: function(mssg, mssg_type){
+        $('.mssgOutput').text(mssg).addClass('active ' + mssg_type);
+        setTimeout(function(){ 
+            $('.mssgOutput').removeClass('active');
+        }, 3000);
     }
 }
 
