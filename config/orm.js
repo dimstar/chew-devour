@@ -25,11 +25,16 @@ let orm = {
             }
         });
     },
-    updateOne: function(dataToUpdate, id, table, callback){
-
-    },
-    deleteOne: function(id, callback){
-
+    updateOne: function( dataToUpdate, id, table, callback){
+        let query_string = 'UPDATE ' + table + ' SET ? WHERE id = ?';
+        connection.query( query_string, [dataToUpdate, id],(err, results, fields) => {
+            if(err){ 
+                log(err);
+            }else{
+                log('update response', results);
+                callback(results);
+            }
+        });
     }
 }
 

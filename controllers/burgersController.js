@@ -16,5 +16,9 @@ module.exports = {
             cb(data);
         });
     },
-    update: function(){}
+    update: function( updateData, id, cb){
+        burgers.update( updateData, id, (data)=>{
+            cb(data);
+        })
+    }
 }

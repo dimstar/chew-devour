@@ -15,6 +15,9 @@ module.exports = {
         });
     },
     update: function(data, id, callback){
-
+        orm.updateOne(data, id, 'burgers', function(ormResponse){
+            // log('orm response: ', ormResponse);
+            callback(ormResponse);
+        });
     }
 }
