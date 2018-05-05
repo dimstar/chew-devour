@@ -11,6 +11,10 @@ module.exports = {
             cb(handlebars);
         });
     },
-    create: function(){},
+    create: function( inputData, cb){
+        burgers.create( inputData, ( data)=>{
+            cb(data);
+        });
+    },
     update: function(){}
 }

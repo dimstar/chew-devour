@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+// middle ware the pub folder
+app.use(express.static('public'));
+
 router.init(app);
 
 //listen

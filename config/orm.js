@@ -15,7 +15,16 @@ let orm = {
         });
     },
     insertOne: function(dataToInsert, table, callback){
-
+        let col_arr = Object.keys(dataToInsert);
+        let query_string = 'INSERT INTO ' + table + ' SET ?';
+        connection.query( query_string, dataToInsert,(err, results, fields) => {
+            if(err){ 
+                log(err);
+            }else{
+                log('query response', results);
+                callback(results.insertId);
+            }
+        });
     },
     updateOne: function(dataToUpdate, id, table, callback){
 

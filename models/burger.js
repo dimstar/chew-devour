@@ -6,10 +6,13 @@ module.exports = {
         orm.selectAll( 'burgers', function(ormResponse){
             log('orm response: ', ormResponse);
             callback(ormResponse);
-        })
+        });
     },
     create: function(data, callback){
-
+        orm.insertOne(data, 'burgers', function(ormResponse){
+            // log('orm response: ', ormResponse);
+            callback(ormResponse);
+        });
     },
     update: function(data, id, callback){
 
