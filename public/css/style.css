@@ -1,1 +1,25 @@
 /* Styles for burger Joint */
+
+* {
+    border-radius: 0 !important;
+}
+
+.mssgOutput {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms; 
+}
+
+.mssgOutput.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.jumbotron {
+    background-size: cover;
+    display: block;
+    color: white;
+    height: 42vh;
+    text-align: center;
+    padding-top: 10%;
+}
